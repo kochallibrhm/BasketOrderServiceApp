@@ -1,0 +1,1 @@
+﻿namespace BasketOrderServiceApp.Common.Models;[Document]public class OrderCacheModel {    [RedisIdField]    public string Id { get; set; }    [Indexed(Sortable = true)]    public long UserId { get; set; }    public string ProductName { get; set; }    public int Quantity { get; set; }    public decimal Price { get; set; }}

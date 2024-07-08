@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "b344GUDsEcDR4oSddwjQOEXO8w/2XCO9rkML1lqx6Y0=",
+  "Source": "BasketOrderServiceApp.OrderService",
+  "BasePath": "_content/BasketOrderServiceApp.OrderService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

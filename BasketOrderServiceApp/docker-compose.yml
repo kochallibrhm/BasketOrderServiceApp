@@ -1,0 +1,81 @@
+version: '3.4'
+
+services:
+  basketorderserviceapp.orderservice:
+    image: ${DOCKER_REGISTRY-}basketorderserviceapporderservice
+    build:
+      context: .
+      dockerfile: BasketOrderServiceApp.OrderService/Dockerfile
+    ports:
+      - "7000:80"
+    depends_on:
+      - rabbitmq
+
+  basketorderserviceapp.basketservice:
+    image: ${DOCKER_REGISTRY-}basketorderserviceappbasketservice
+    build:
+      context: .
+      dockerfile: BasketOrderServiceApp.BasketService/Dockerfile
+    ports:
+      - "7001:80"
+    depends_on:
+      - redis
+      - rabbitmq
+
+  basketorderserviceapp.apigateway:
+    image: ${DOCKER_REGISTRY-}basketorderserviceappapigateway
+    build:
+      context: .
+      dockerfile: BasketOrderServiceApp.APIGateway/Dockerfile
+    ports:
+      - "7002:80"
+    depends_on:
+      - rabbitmq
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    image: "rabbitmq:management-alpine"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.3
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - esdata1:/usr/share/elasticsearch/data
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.9.3
+    container_name: logstash
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash/pipeline:/usr/share/logstash/pipeline
+    ports:
+      - "5000:5000"
+    depends_on:
+      - elasticsearch
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.9.3
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+
+volumes:
+  esdata1:
+    driver: local
+  redis_data:
+    driver: local
+

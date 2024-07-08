@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "IdzYqC3S9XXNiqC86+8p5KSx2+X1BBCL8F5P++uiSTE=",
+  "Source": "BasketOrderServiceApp.APIGateway",
+  "BasePath": "_content/BasketOrderServiceApp.APIGateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

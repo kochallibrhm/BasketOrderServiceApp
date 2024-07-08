@@ -1,0 +1,10 @@
+﻿global using System.ComponentModel.DataAnnotations.Schema;
+global using System.ComponentModel.DataAnnotations;
+global using Microsoft.EntityFrameworkCore;
+global using BasketOrderServiceApp.Common;
+global using BasketOrderServiceApp.Common.Models;
+global using BasketOrderServiceApp.OrderService.Consumers;
+global using MassTransit;
+global using BasketOrderServiceApp.OrderService.IoC;
+global using BasketOrderServiceApp.OrderService.Data.Repositories;
+global using Serilog;

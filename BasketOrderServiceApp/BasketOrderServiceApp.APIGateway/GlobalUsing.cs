@@ -1,0 +1,12 @@
+﻿global using BasketOrderServiceApp.APIGateway.IoC;
+global using BasketOrderServiceApp.APIGateway.MediatR.Requests;
+global using BasketOrderServiceApp.APIGateway.MediatR.Responses;
+global using FluentValidation;
+global using FluentValidation.AspNetCore;
+global using MassTransit;
+global using MediatR;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Mvc;
+global using Serilog;
+global using System.Text.Json.Serialization;
+global using BasketOrderServiceApp.Common.Models;
